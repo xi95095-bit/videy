@@ -2,8 +2,16 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Video Player UI</title>
+  <title>Video UI</title>
+
+  <!-- WAJIB untuk mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background-color: #0f0f0f;
@@ -11,64 +19,68 @@
       color: white;
     }
 
-    /* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 12px;
-  background-color: #1a1a1a;
-  flex-wrap: wrap; /* biar ga maksa satu baris */
-}
+    /* ================= HEADER ================= */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      background-color: #1a1a1a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.logo {
-  font-weight: bold;
-  font-size: 16px;
-}
+    .logo {
+      font-weight: bold;
+      font-size: 16px;
+    }
 
-/* Tombol upload */
-.upload-btn {
-  background-color: #2d6cdf;
-  padding: 6px 12px;
-  border-radius: 8px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-}
+    .upload-btn {
+      background-color: #2d6cdf;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: white;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
 
-    /* Advertise */
+    /* ================= ADS ================= */
     .ads {
       padding: 10px 15px;
       color: #aaa;
       font-size: 14px;
     }
 
-   .video-container {
-  position: relative;
-  margin: 20px auto;        /* kasih jarak atas bawah + center */
-  width: 90%;               /* tidak full layar */
-  max-width: 400px;         /* batas maksimal biar ga kegedean */
-  border-radius: 15px;
-  overflow: hidden;
-  background-color: black;
-}
+    /* ================= VIDEO ================= */
+    .video-container {
+      position: relative;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 420px;
+      aspect-ratio: 9 / 16;
+      border-radius: 15px;
+      overflow: hidden;
+      background-color: black;
+    }
 
-video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-    /* Play button overlay */
+    /* Tombol play */
     .play-btn {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 70px;
-      height: 70px;
-      background-color: rgba(255,255,255,0.8);
+      width: 65px;
+      height: 65px;
+      background-color: rgba(255,255,255,0.85);
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -78,13 +90,13 @@ video {
 
     .play-btn::after {
       content: '';
-      border-left: 20px solid black;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      margin-left: 5px;
+      border-left: 18px solid black;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      margin-left: 4px;
     }
 
-    /* Bottom navbar (optional) */
+    /* ================= NAVBAR ================= */
     .navbar {
       position: fixed;
       bottom: 0;
@@ -96,47 +108,50 @@ video {
     }
 
     .nav-item {
+      font-size: 13px;
       color: white;
-      font-size: 14px;
     }
 
+    /* ================= MOBILE ================= */
     @media (max-width: 480px) {
-  .header {
-    padding: 8px 10px;
-  }
+      .logo {
+        font-size: 14px;
+      }
 
-  .logo {
-    font-size: 14px;
-  }
+      .upload-btn {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
 
-  .upload-btn {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-}
+      .video-container {
+        width: 95%;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <div class="header">
     <div class="logo">vldey.co</div>
     <button class="upload-btn">Upload</button>
   </div>
 
-  <!-- Advertise -->
+  <!-- ADS -->
   <div class="ads">Advertise</div>
 
-  <!-- Video -->
+  <!-- VIDEO -->
   <div class="video-container">
     <video id="video">
-      <source src="vid.mp4" type="video/mp4">
+      <source src="video.mp4" type="video/mp4">
     </video>
 
     <div class="play-btn" onclick="playVideo()"></div>
   </div>
 
-  <!-- Bottom Navbar -->
+  <!-- NAVBAR -->
   <div class="navbar">
     <div class="nav-item">Home</div>
     <div class="nav-item">Explore</div>
