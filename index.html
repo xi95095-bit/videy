@@ -2,22 +2,22 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Multi Video</title>
+  <title>Video Player UI</title>
   <style>
     body {
       margin: 0;
+      background-color: #0f0f0f;
       font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
+      color: white;
     }
 
-    /* Navbar */
-    .navbar {
+    /* Header */
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 20px;
-      background: white;
-      border-bottom: 1px solid #ddd;
+      padding: 10px 15px;
+      background-color: #1a1a1a;
     }
 
     .logo {
@@ -26,99 +26,110 @@
     }
 
     .upload-btn {
-      background: #111;
+      background-color: #2d6cdf;
+      padding: 8px 14px;
+      border-radius: 8px;
       color: white;
-      padding: 8px 18px;
-      border-radius: 20px;
       border: none;
       cursor: pointer;
     }
 
-    .advertise {
+    /* Advertise */
+    .ads {
+      padding: 10px 15px;
       color: #aaa;
-      font-size: 12px;
-      margin: 10px 20px;
+      font-size: 14px;
     }
 
-    /* GRID VIDEO */
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .video-wrapper {
-      text-align: center;
-    }
-
-    .video-title {
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    .video-card {
-      width: 100%;
-      height: 500px;
-      border-radius: 20px;
+    /* Video Container */
+    .video-container {
+      position: relative;
+      margin: 10px;
+      border-radius: 15px;
       overflow: hidden;
-      background: black;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      background-color: black;
     }
 
     video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
     }
 
-    .download-btn {
-      margin-top: 10px;
-      background: #111;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: none;
+    /* Play button overlay */
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      background-color: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
     }
 
-    .download-btn:hover {
-      background: #333;
+    .play-btn::after {
+      content: '';
+      border-left: 20px solid black;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 5px;
     }
 
+    /* Bottom navbar (optional) */
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #1a1a1a;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+
+    .nav-item {
+      color: white;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">videy.co</div>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">vldey.co</div>
     <button class="upload-btn">Upload</button>
   </div>
 
-  <div class="advertise">Advertise</div>
+  <!-- Advertise -->
+  <div class="ads">Advertise</div>
 
-  <!-- MULTI VIDEO -->
-  <div class="container">
+  <!-- Video -->
+  <div class="video-container">
+    <video id="video">
+      <source src="vid.mp4" type="video/mp4">
+    </video>
 
-    <!-- VIDEO 1 -->
-    <div class="video-wrapper">
-      <div class="video-title">Video 1</div>
-      <div class="video-card">
-        <video controls>
-          <source src="vid.mp4" type="video/mp4">
-        </video>
-      </div>
-      <button class="download-btn" onclick="fakeDownload()">Download</button>
-    </div>
+    <div class="play-btn" onclick="playVideo()"></div>
+  </div>
 
-    
-
+  <!-- Bottom Navbar -->
+  <div class="navbar">
+    <div class="nav-item">Home</div>
+    <div class="nav-item">Explore</div>
+    <div class="nav-item">Saved</div>
+    <div class="nav-item">Profile</div>
   </div>
 
   <script>
-    function fakeDownload() {
-      alert("Download belum tersedia 😄");
+    function playVideo() {
+      const video = document.getElementById("video");
+      video.play();
+      document.querySelector(".play-btn").style.display = "none";
     }
   </script>
 
