@@ -41,20 +41,21 @@
       font-size: 14px;
     }
 
-    /* Video Container */
-    .video-container {
-      position: relative;
-      margin: 10px;
-      border-radius: 15px;
-      overflow: hidden;
-      background-color: black;
-    }
+   .video-container {
+  position: relative;
+  margin: 20px auto;        /* kasih jarak atas bawah + center */
+  width: 90%;               /* tidak full layar */
+  max-width: 400px;         /* batas maksimal biar ga kegedean */
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: black;
+}
 
-    video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
     /* Play button overlay */
     .play-btn {
