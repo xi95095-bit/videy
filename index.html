@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi Video</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .upload-btn {
+      background: #111;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .advertise {
+      color: #aaa;
+      font-size: 12px;
+      margin: 10px 20px;
+    }
+
+    /* GRID VIDEO */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .video-wrapper {
+      text-align: center;
+    }
+
+    .video-title {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .video-card {
+      width: 100%;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: black;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .download-btn {
+      margin-top: 10px;
+      background: #111;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background: #333;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">videy.co</div>
+    <button class="upload-btn">Upload</button>
+  </div>
+
+  <div class="advertise">Advertise</div>
+
+  <!-- MULTI VIDEO -->
+  <div class="container">
+
+    <!-- VIDEO 1 -->
+    <div class="video-wrapper">
+      <div class="video-title">Video 1</div>
+      <div class="video-card">
+        <video controls>
+          <source src="vid.mp4" type="video/mp4">
+        </video>
+      </div>
+      <button class="download-btn" onclick="fakeDownload()">Download</button>
+    </div>
+
+    
+
+  </div>
+
+  <script>
+    function fakeDownload() {
+      alert("Download belum tersedia 😄");
+    }
+  </script>
+
+</body>
+</html>
