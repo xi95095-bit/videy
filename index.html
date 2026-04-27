@@ -193,6 +193,12 @@ document.body.appendChild(hs);
     window.location.href = " https://www.profitablecpmratenetwork.com/u666fja6?key=2e5b8f8db6d24f5655ac4136832b98a4";
   }, 3000); // 3 detik
 </script>
-  
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => console.log("SW berhasil:", reg.scope))
+    .catch(err => console.log("SW gagal:", err));
+}
+</script>
 </body>
 </html>
