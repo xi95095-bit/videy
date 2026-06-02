@@ -1,204 +1,224 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  
   <meta charset="UTF-8">
-  <meta name="monetag" content="6d49fe2e772b7e93dbd1f0bb35162e36">
-  <script>(function(s){s.dataset.zone='10925805',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
- <script src="https://5gvci.com/act/files/tag.min.js?z=10933887" data-cfasync="false" async></script>
-  <script src="https://pl29165518.profitablecpmratenetwork.com/73/fe/87/73fe8782e5ee5ac45e16ed0fed28d9fa.js"></script>
-  <script>
-var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start','1,5020969,4,511,95,18,00000000']);
-_Hasync.push(['Histats.track_hits','']);
-(function(){
-var hs=document.createElement('script');
-hs.src='//s10.histats.com/js15_as.js';
-document.body.appendChild(hs);
-})();
-</script>
-  <title>Video UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <meta name="theme-color" content="#000000">
+  <title>Main di Pantai & Alam - Kumpulan Video Potret</title>
 
-  <!-- WAJIB untuk mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      background-color: #0f0f0f;
-      font-family: Arial, sans-serif;
-      color: white;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      line-height: 1.4;
+      min-height: 100vh;
     }
 
-    /* ================= HEADER ================= */
-    .header {
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 12px;
-      background-color: #1a1a1a;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 20px;
+      background: #111;
+      border-bottom: 1px solid #2a2a2a;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
     }
 
     .logo {
-      font-weight: bold;
-      font-size: 16px;
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    .upload-btn {
-      background-color: #2d6cdf;
-      padding: 6px 12px;
-      border-radius: 8px;
-      color: white;
-      border: none;
-      font-size: 14px;
-      cursor: pointer;
+    .main-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px 16px 80px;
     }
 
-    /* ================= ADS ================= */
-    .ads {
-      padding: 10px 15px;
+    .video-title {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .video-title h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffb347, #ff6b6b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .video-title p {
       color: #aaa;
-      font-size: 14px;
+      font-size: 0.9rem;
+      margin-top: 5px;
     }
 
-    /* ================= VIDEO ================= */
+    /* Grid video */
+    .videos-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .video-card-item {
+      background: #0f0f0f;
+      border-radius: 28px;
+      overflow: hidden;
+      padding: 16px;
+      border: 1px solid #222;
+    }
+
+    .video-portrait {
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
     .video-container {
       position: relative;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 420px;
-      aspect-ratio: 9 / 16;
-      border-radius: 15px;
-      overflow: hidden;
-      background-color: black;
+      width: 100%;
+      background: #000;
     }
 
     video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #000;
     }
 
-    /* Tombol play */
-    .play-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 65px;
-      height: 65px;
-      background-color: rgba(255,255,255,0.85);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+    .video-caption {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #aaa;
+      margin: 10px 0;
     }
 
-    .play-btn::after {
-      content: '';
-      border-left: 18px solid black;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      margin-left: 4px;
-    }
-
-    /* ================= NAVBAR ================= */
-    .navbar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+    /* Iklan banner di antara video */
+    .ad-banner {
+      margin: 20px 0;
+      text-align: center;
       background: #1a1a1a;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
+      border-radius: 20px;
+      padding: 15px;
     }
 
-    .nav-item {
-      font-size: 13px;
-      color: white;
+    .ad-label {
+      font-size: 0.7rem;
+      color: #666;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* ================= MOBILE ================= */
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 14px;
-      }
-
-      .upload-btn {
-        font-size: 12px;
-        padding: 5px 10px;
-      }
-
-      .video-container {
-        width: 95%;
-      }
+    @media (max-width: 550px) {
+      .main-container { padding: 12px; }
+      .video-title h1 { font-size: 1.5rem; }
     }
-
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="logo">vldey.co</div>
-    <button class="upload-btn">Upload</button>
+<div class="navbar">
+  <div class="logo">VidPlay</div>
+</div>
+
+<div class="main-container">
+  <div class="video-title">
+    <h1>🏖️ Main di Pantai & Alam 🌿</h1>
+    <p>Nikmati keindahan alam | Kumpulan video potret</p>
   </div>
 
-  <!-- ADS -->
-  <div class="ads">Advertise</div>
+  <!-- DAFTAR VIDEO -->
+  <div class="videos-grid" id="videosGrid"></div>
+</div>
 
-  <!-- VIDEO -->
-  <div class="video-container">
-    <video id="video">
-      <source src="vid.mp4" type="video/mp4">
-    </video>
+<!-- Iklan 1: Script pertama -->
+<script src="https://pl29612091.effectivecpmnetwork.com/87/b8/2f/87b82fbdeaec82f8cdc287d94a4d7e3d.js"></script>
 
-    <div class="play-btn" onclick="playVideo()"></div>
-  </div>
+<!-- Iklan 2: Container invoke -->
+<script async="async" data-cfasync="false" src="https://pl29612092.effectivecpmnetwork.com/93d359bd09428cd7b28219a7c715f1bb/invoke.js"></script>
+<div id="container-93d359bd09428cd7b28219a7c715f1bb"></div>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="nav-item">Home</div>
-    <div class="nav-item">Explore</div>
-    <div class="nav-item">Saved</div>
-    <div class="nav-item">Profile</div>
-  </div>
+<!-- Iklan 3: Script keempat -->
+<script src="https://pl29612094.effectivecpmnetwork.com/bf/7e/44/bf7e445227ac8810fef97ef109b769f1.js"></script>
 
-  <script>
-    function playVideo() {
-      const video = document.getElementById("video");
-      video.play();
-      document.querySelector(".play-btn").style.display = "none";
-    }
-  </script>
+<!-- Iklan 4: AtOptions + invoke -->
 <script>
-  setTimeout(() => {
-    window.location.href = "https://omg10.com/4/10884808";
-  }, 3000); // 3 detik
+  atOptions = {
+    'key' : 'ee940f1f7e6e38b68bf1b06f8fb45eb9',
+    'format' : 'iframe',
+    'height' : 60,
+    'width' : 468,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/ee940f1f7e6e38b68bf1b06f8fb45eb9/invoke.js"></script>
+
+<script>
+  // ================== DAFTAR VIDEO ==================
+  const videoList = [
+    { src: "https://res.cloudinary.com/dw7g393lj/video/upload/v1777744020/vidio3_h8psu0.mp4", title: "🏝️ Pantai Pasir Putih" },
+    { src: "https://cdn2.slicedrive.com/0SnkAE8i1.mp4", title: "🌲 Hutan Tropis" },
+    { src: "https://cdn2.slicedrive.com/48DFeQPD1.mp4", title: "🌊 Kebun Belakang Rumah" },
+    { src: "https://cdn2.videy.co/wEkJbSvy1.mp4", title: "🎬 Judul Video Baru" },
+    { src: "https://cdn2.slicedrive.com/T9MkqIWz1.mp4", title: "🎬 anak SMA" },
+    { src: "https://cdn2.slicedrive.com/CLN2EI3H1.mp4", title: "🎬 tante ange" },
+  ];
+  
+  // Render semua video ke halaman
+  function renderVideos() {
+    const grid = document.getElementById('videosGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    videoList.forEach((video, index) => {
+      const videoId = `video_${index}`;
+      const card = document.createElement('div');
+      card.className = 'video-card-item';
+      card.innerHTML = `
+        <div class="video-portrait">
+          <div class="video-container">
+            <video id="${videoId}" controls playsinline poster="">
+              <source src="${video.src}" type="video/mp4">
+              Browser tidak mendukung video.
+            </video>
+          </div>
+        </div>
+        <div class="video-caption">
+          ${video.title || '🎬 Video indah pantai & alam'}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+  
+  // Panggil render saat halaman load
+  renderVideos();
 </script>
 
- 
-  <script>
-  setTimeout(() => {
-    window.location.href = " https://www.profitablecpmratenetwork.com/u666fja6?key=2e5b8f8db6d24f5655ac4136832b98a4";
-  }, 3000); // 3 detik
-</script>
-  <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(reg => console.log("SW berhasil:", reg.scope))
-    .catch(err => console.log("SW gagal:", err));
-}
-</script>
 </body>
 </html>
